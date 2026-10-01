@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>30 Dias com os Santos</title>
+<meta name="description" content="E-book devocional católico: 30 santos, 30 histórias e 30 orações para rezar 10 minutos por dia. R$ 19,90, acesso imediato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<style>
+/* Layout: abertura escura "vitral à noite" com a capa acesa; depois páginas claras de livro de horas alternando com faixas azul-noite; celular primeiro, CTA vinho que aparece só quando o botão principal sai da tela */
+:root{
+  --bg:#F4F5F8; --paper:#FFFFFF; --ink:#1B2238; --muted:#565D73; --line:#DDE0E8;
+  --gold:#A7792B;        /* ouro velho: detalhes e bordas */
+  --gold-text:#85601F;   /* ouro para texto pequeno, contraste AA no claro */
+  --gold-soft:#F3EAD8;
+  --wine:#7B1E2E; --wine-hover:#62172A;
+  --night:#161D35; --night-2:#1F2848; --night-fg:#EEF0F6; --night-muted:#B6BCD0; --night-gold:#D6AE63;
+  --ok:#2F6B4F;
+  --f-display:"Marcellus", "Trajan Pro", Georgia, serif;
+  --f-body:"Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --maxw:1100px; --read:660px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10141F; --paper:#171C2A; --ink:#E9EBF2; --muted:#A3A9BC; --line:#2A3144;
+    --gold:#D2A75A; --gold-text:#D8B06A; --gold-soft:#2A2518; --wine:#A33247; --wine-hover:#BC3D54;
+    --night:#0B0F19; --night-2:#141A2B; --ok:#5DB08A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10141F; --paper:#171C2A; --ink:#E9EBF2; --muted:#A3A9BC; --line:#2A3144;
+  --gold:#D2A75A; --gold-text:#D8B06A; --gold-soft:#2A2518; --wine:#A33247; --wine-hover:#BC3D54;
+  --night:#0B0F19; --night-2:#141A2B; --ok:#5DB08A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px}
+.read{max-width:var(--read)}
+.center{margin-inline:auto;text-align:center;align-items:center}
+section{padding-block:56px}
+@media (min-width:860px){section{padding-block:88px}}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3.6rem);line-height:1.08}
+h2{font-size:clamp(1.65rem,4vw,2.5rem)}
+h3{font-size:1.2rem}
+p{margin:0}
+.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.muted{color:var(--muted)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.night{background:var(--night);color:var(--night-fg)}
+.night .muted{color:var(--night-muted)}
+.night .eyebrow{color:var(--night-gold)}
+
+/* Botão */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--wine);color:#fff;text-decoration:none;font-weight:800;font-size:1.06rem;padding:18px 26px;border-radius:999px;box-shadow:0 10px 24px -12px rgba(123,30,46,.9);transition:background .2s, transform .2s;text-align:center;border:0;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn:hover{background:var(--wine-hover);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn-block{width:100%}
+.check{display:inline-flex;align-items:center;gap:6px}
+.check svg{color:var(--ok);flex:none}
+.night .check svg{color:var(--night-gold)}
+.micro{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.84rem;color:var(--muted)}
+.night .micro{color:var(--night-muted)}
+
+/* Faixa superior */
+.topbar{background:var(--wine);color:#fff;font-size:.84rem;text-align:center;padding:9px 16px;font-weight:600}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding-block:40px 56px;background:
+  radial-gradient(60% 55% at 78% 30%, rgba(214,174,99,.18), transparent 70%),
+  radial-gradient(80% 60% at 10% 100%, rgba(123,30,46,.22), transparent 70%),
+  linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%)}
+@media (min-width:860px){.hero{padding-block:72px 88px}}
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media (min-width:860px){.hero-grid{grid-template-columns:1.2fr .8fr;gap:56px}}
+.hero-copy{min-width:0;gap:20px}
+.hero h1 em{font-style:normal;color:var(--night-gold)}
+.lead{font-size:1.1rem;color:var(--night-muted);max-width:34em}
+.stats{display:flex;gap:0;border:1px solid rgba(214,174,99,.35);border-radius:14px;overflow:hidden;max-width:440px}
+.stats div{flex:1;padding:12px 8px;text-align:center;display:flex;flex-direction:column;line-height:1.15}
+.stats div + div{border-left:1px solid rgba(214,174,99,.35)}
+.stats b{font-family:var(--f-display);font-weight:400;font-size:1.6rem;color:var(--night-gold)}
+.stats span{font-size:.74rem;color:var(--night-muted);letter-spacing:.02em}
+.hero-cta{display:flex;flex-direction:column;gap:12px;max-width:440px}
+.price-inline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price-inline strong{font-family:var(--f-display);font-weight:400;font-size:2.2rem;color:#fff}
+.price-inline span{color:var(--night-muted);font-size:.92rem}
+
+/* Capa do livro */
+.cover-stage{display:flex;justify-content:center;position:relative}
+.cover-stage::before{content:"";position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(214,174,99,.28), transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(10px)}
+.cover{position:relative;width:min(290px,64vw);aspect-ratio:3/4.2;max-width:100%;background:radial-gradient(120% 80% at 50% 0%, #2B3761 0%, #18203A 60%, #121830 100%);border-radius:4px 12px 12px 4px;box-shadow:-10px 0 0 -4px #0A0F1F, 0 40px 70px -25px rgba(0,0,0,.8), inset 6px 0 10px -6px rgba(0,0,0,.6);color:#EEF0F6;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:24px 20px 20px;transform:rotate(-3deg)}
+.cover::before{content:"";position:absolute;inset:10px;border:1px solid rgba(210,167,90,.55);border-radius:2px 8px 8px 2px;pointer-events:none}
+.arch{width:60%;aspect-ratio:3/4;border:2px solid #D2A75A;border-radius:999px 999px 6px 6px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 38%, rgba(210,167,90,.38), transparent 58%)}
+.arch::after{content:"";position:absolute;inset:8px;border:1px solid rgba(210,167,90,.45);border-radius:999px 999px 4px 4px}
+.halo{width:36%;aspect-ratio:1;border-radius:50%;border:1.5px solid #D2A75A;box-shadow:0 0 30px rgba(210,167,90,.45);animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 46px rgba(210,167,90,.75)}}
+.cover-top{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:#D2A75A;text-align:center}
+.cover-title{font-family:var(--f-display);text-align:center;line-height:1.05}
+.cover-title .n{display:block;font-size:3.4rem;color:#D2A75A}
+.cover-title .t{display:block;font-size:1.4rem}
+.cover-sub{font-size:.7rem;text-align:center;color:#C9CEDD;letter-spacing:.04em}
+.format-tag{position:absolute;right:max(4%,calc(50% - 175px));bottom:6%;background:var(--paper);color:var(--ink);font-size:.75rem;font-weight:800;padding:6px 12px;border-radius:999px;box-shadow:0 8px 20px -10px rgba(0,0,0,.6);transform:rotate(4deg)}
+
+/* Dor */
+.pain-grid{display:grid;gap:10px}
+@media (min-width:760px){.pain-grid{grid-template-columns:1fr 1fr}}
+.pain{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.pain .q{flex:none;font-family:var(--f-display);font-size:1.6rem;line-height:1;color:var(--gold)}
+.turn{font-family:var(--f-display);font-size:clamp(1.3rem,3vw,1.6rem);line-height:1.35;border-left:3px solid var(--gold);padding-left:18px}
+
+/* Como é cada dia: linha do tempo */
+.day-flow{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.day-flow li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding-bottom:18px;position:relative;min-width:0}
+.day-flow li::before{content:"";position:absolute;left:19px;top:40px;bottom:0;width:1px;background:rgba(214,174,99,.35)}
+.day-flow li:last-child::before{display:none}
+.day-flow .n{width:40px;height:40px;border-radius:50%;border:1px solid var(--night-gold);display:grid;place-items:center;font-family:var(--f-display);color:var(--night-gold);font-size:1.05rem;background:var(--night)}
+.day-flow h3{font-size:1.15rem;padding-top:6px}
+.day-flow p{color:var(--night-muted);font-size:.95rem}
+@media (min-width:860px){
+  .flow-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .flow-grid .intro{position:sticky;top:32px}
+}
+.time-pill{display:inline-flex;gap:8px;align-items:center;background:rgba(214,174,99,.14);color:var(--night-gold);border-radius:999px;padding:8px 14px;font-weight:700;font-size:.9rem;width:fit-content}
+
+/* Amostra */
+.sample{background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:0 24px 60px -34px rgba(27,34,56,.45);padding:clamp(22px,5vw,48px);max-width:720px;margin-inline:auto;position:relative}
+.sample::before{content:"";position:absolute;inset:8px;border:1px solid var(--gold-soft);border-radius:3px;pointer-events:none}
+.sample > *{position:relative}
+.sample-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
+.feast{font-size:.85rem;color:var(--muted)}
+.sample h4{font-family:var(--f-body);font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);margin:20px 0 8px}
+.sample .prayer{font-family:var(--f-display);font-size:1.12rem;line-height:1.6}
+.fade{position:relative;max-height:210px;overflow:hidden}
+.fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to bottom, transparent, var(--paper))}
+.keep{background:var(--gold-soft);border-radius:8px;padding:14px 16px;font-weight:700;margin-top:18px}
+.sample-foot{text-align:center;font-size:.9rem;color:var(--muted)}
+
+/* Explorador dos 30 santos */
+.explorer{display:grid;gap:22px}
+@media (min-width:900px){.explorer{grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}}
+.needs{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:9px 14px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.beads{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+@media (min-width:560px){.beads{grid-template-columns:repeat(10,minmax(0,1fr))}}
+.bead{width:100%;aspect-ratio:1;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-weight:800;font-size:.9rem;font-variant-numeric:tabular-nums;cursor:pointer;display:grid;place-items:center;transition:transform .15s, background .15s, border-color .15s, opacity .2s;padding:0}
+.bead:hover{border-color:var(--gold);transform:scale(1.06)}
+.bead.hit{border-color:var(--gold);background:var(--gold-soft)}
+.bead.dim{opacity:.35}
+.bead[aria-current="true"]{background:var(--wine);color:#fff;border-color:var(--wine);transform:scale(1.08)}
+.saint-card{background:var(--night);color:var(--night-fg);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;min-height:230px;position:relative;overflow:hidden}
+.saint-card::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:220px;border:1px solid rgba(214,174,99,.3);border-radius:999px 999px 8px 8px}
+.saint-card .dl{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--night-gold)}
+.saint-card h3{font-size:1.9rem}
+.saint-card .theme{font-size:1.05rem}
+.saint-card .meta{font-size:.88rem;color:var(--night-muted)}
+.saint-card .nav{display:flex;gap:8px;margin-top:auto;padding-top:8px}
+.saint-card .nav button{flex:1;background:transparent;border:1px solid rgba(214,174,99,.4);color:var(--night-fg);border-radius:999px;padding:10px;font:inherit;font-weight:700;font-size:.88rem;cursor:pointer}
+.saint-card .nav button:hover{background:rgba(214,174,99,.12)}
+.hint{font-size:.85rem;color:var(--muted)}
+
+/* Jornada 30 dias */
+.journey{display:grid;gap:14px}
+@media (min-width:820px){.journey{grid-template-columns:repeat(3,1fr)}}
+.stage{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.stage .when{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text)}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+
+/* Para quem */
+.fit{display:grid;gap:14px}
+@media (min-width:760px){.fit{grid-template-columns:1fr 1fr}}
+.fit-col{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.fit-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fit-col li{display:flex;gap:10px;align-items:flex-start}
+.fit-col li svg{flex:none;margin-top:5px}
+.yes svg{color:var(--ok)}
+.no svg{color:var(--muted)}
+.gift{display:flex;gap:16px;align-items:center;flex-wrap:wrap;border:1px dashed var(--gold);border-radius:16px;padding:18px 20px}
+.gift svg{flex:none;color:var(--gold)}
+.gift div{flex:1 1 240px;min-width:0}
+
+/* Oferta */
+.offer{display:grid;gap:28px;align-items:start}
+@media (min-width:880px){.offer{grid-template-columns:1fr 420px;gap:48px}.price-card{position:sticky;top:24px}}
+.offer .price-card{order:-1}
+@media (min-width:880px){.offer .price-card{order:0}}
+.included{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.included li{display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-block:14px}
+.included li:first-child{padding-top:0}
+.included .ic{flex:none;width:34px;height:34px;border-radius:10px;background:var(--gold-soft);color:var(--gold-text);display:grid;place-items:center}
+.included b{display:block}
+.price-card{background:var(--paper);border:2px solid var(--gold);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;text-align:center;box-shadow:0 30px 60px -35px rgba(27,34,56,.5)}
+.price-card .mini-cover{display:flex;justify-content:center;gap:10px;align-items:center;font-weight:700}
+.price-card .big{font-family:var(--f-display);font-size:3.6rem;line-height:1}
+.price-card .big small{font-size:1.4rem;vertical-align:super;margin-right:4px}
+.per-day{font-size:.95rem;color:var(--muted)}
+.pay{font-size:.8rem;color:var(--muted)}
+.price-card .micro{justify-content:center}
+
+/* Garantia */
+.guarantee{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--gold-soft);border-radius:18px;padding:26px}
+.seal{flex:none;width:96px;height:96px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;text-align:center;font-family:var(--f-display);color:var(--gold-text);line-height:1.05;outline:1px solid var(--gold);outline-offset:4px}
+.seal b{display:block;font-size:2rem;font-weight:400}
+.seal span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-family:var(--f-body);font-weight:800}
+.guarantee .txt{flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px}
+
+/* FAQ */
+.faq{display:grid;gap:10px}
+.faq details{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:0 18px;transition:border-color .2s}
+.faq details[open]{border-color:var(--gold)}
+.faq summary{cursor:pointer;list-style:none;padding:17px 30px 17px 0;font-weight:700;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font-size:1.5rem;color:var(--gold);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:18px;color:var(--muted)}
+
+/* Final */
+.final{background:radial-gradient(60% 70% at 50% 0%, rgba(214,174,99,.16), transparent 70%), var(--night)}
+.final .btn{max-width:420px;width:100%}
+
+footer{border-top:1px solid var(--line);padding-block:28px 32px;font-size:.8rem;color:var(--muted)}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+
+/* CTA fixo (aparece depois do hero, some na oferta) */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--paper);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px));display:flex;gap:12px;align-items:center;box-shadow:0 -10px 30px -20px rgba(0,0,0,.45);transform:translateY(110%);transition:transform .3s ease}
+.sticky.show{transform:none}
+.sticky .p{display:flex;flex-direction:column;line-height:1.1;flex:none}
+.sticky .p b{font-family:var(--f-display);font-size:1.35rem;font-weight:400}
+.sticky .p span{font-size:.72rem;color:var(--muted)}
+.sticky .btn{flex:1;padding:14px 16px;font-size:.98rem}
+@media (min-width:860px){.sticky{display:none}}
+body.has-sticky{padding-bottom:80px}
+@media (min-width:860px){body.has-sticky{padding-bottom:0}}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+<!-- Cole aqui o código base do Pixel da Meta (Facebook) -->
+</head>
+<body>
+
+<div class="topbar">Preço de lançamento: R$ 19,90 · pagamento único · acesso imediato</div>
+
+<!-- HERO -->
+<header class="hero night">
+  <div class="wrap hero-grid">
+    <div class="hero-copy stack">
+      <span class="eyebrow">Devocional católico em 30 dias</span>
+      <h1>Reze 10 minutos por dia com <em>30 santos</em> e crie o hábito da oração</h1>
+      <p class="lead">Uma história, uma oração e um gesto simples por dia. Para quem tem rotina corrida e quer voltar a conversar com Deus sem culpa e sem complicação.</p>
+      <div class="stats" aria-label="O que tem no e-book">
+        <div><b>30</b><span>santos</span></div>
+        <div><b>30</b><span>orações</span></div>
+        <div><b>10</b><span>min por dia</span></div>
+      </div>
+      <div class="hero-cta" id="hero-cta">
+        <div class="price-inline"><strong>R$ 19,90</strong><span>pagamento único</span></div>
+        <a class="btn btn-block js-checkout" href="#oferta">
+          Quero começar hoje
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="micro">
+          <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Acesso imediato</span>
+          <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PIX ou cartão</span>
+          <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Garantia de 7 dias</span>
+        </div>
+      </div>
+    </div>
+    <div class="cover-stage" aria-hidden="true">
+      <div class="cover">
+        <div class="cover-top">Histórias e orações</div>
+        <div class="arch"><div class="halo"></div></div>
+        <div class="cover-title"><span class="n">30</span><span class="t">Dias com os Santos</span></div>
+        <div class="cover-sub">para caminhar com fé</div>
+      </div>
+      <span class="format-tag">E-book em PDF</span>
+    </div>
+  </div>
+</header>
+
+<!-- DOR -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack read">
+      <span class="eyebrow">Talvez você se reconheça</span>
+      <h2>Você tem fé. O que falta é tempo e um caminho para seguir.</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain"><span class="q" aria-hidden="true">“</span><span>Prometo rezar todo dia, mas a correria engole a manhã e a noite chega cansada.</span></div>
+      <div class="pain"><span class="q" aria-hidden="true">“</span><span>Quando paro, não sei o que dizer e acabo repetindo as mesmas palavras no automático.</span></div>
+      <div class="pain"><span class="q" aria-hidden="true">“</span><span>Tenho carinho pelos santos, mas conheço pouco da história de cada um.</span></div>
+      <div class="pain"><span class="q" aria-hidden="true">“</span><span>Começo um devocional animada e largo na primeira semana, porque era longo demais.</span></div>
+    </div>
+    <p class="turn read">Os santos também tinham rotina, cansaço e dias difíceis. Caminhar com um deles por dia torna a oração possível de novo.</p>
+  </div>
+</section>
+
+<!-- COMO É CADA DIA -->
+<section class="night">
+  <div class="wrap flow-grid">
+    <div class="intro stack" style="margin-bottom:28px">
+      <span class="eyebrow">Como é cada dia</span>
+      <h2>Você abre o dia, lê no seu ritmo e fecha com um gesto</h2>
+      <p class="muted">Todo capítulo segue o mesmo caminho. Com o tempo, a oração vira rotina.</p>
+      <span class="time-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Cerca de 10 minutos</span>
+    </div>
+    <ol class="day-flow">
+      <li><span class="n">1</span><div><h3>Resumo</h3><p>Quem foi, onde viveu, a data da festa e o tema do dia, em cinco linhas.</p></div></li>
+      <li><span class="n">2</span><div><h3>Sua história</h3><p>A vida do santo contada com leveza, separando fato histórico de tradição.</p></div></li>
+      <li><span class="n">3</span><div><h3>Um passo mais fundo</h3><p>Um detalhe curioso e o que ele diz para a sua rotina de hoje.</p></div></li>
+      <li><span class="n">4</span><div><h3>Oração</h3><p>Uma oração original, escrita para o tema daquele dia.</p></div></li>
+      <li><span class="n">5</span><div><h3>Para refletir</h3><p>Duas perguntas para pensar no caminho do trabalho ou escrever num caderno.</p></div></li>
+      <li><span class="n">6</span><div><h3>Gesto do dia</h3><p>Uma ação simples para a fé sair do papel.</p></div></li>
+      <li><span class="n">7</span><div><h3>Para levar no coração</h3><p>Uma frase curta para lembrar ao longo do dia.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- AMOSTRA -->
+<section>
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack read center">
+      <span class="eyebrow">Leia um trecho</span>
+      <h2>Veja como é por dentro</h2>
+      <p class="muted">Trecho real do Dia 5.</p>
+    </div>
+    <article class="sample">
+      <div class="sample-head">
+        <div><div class="eyebrow">Dia 5 · não carregar sozinho</div><h3 style="font-size:1.8rem">São Judas Tadeu</h3></div>
+        <div class="feast">Festa: 28/10</div>
+      </div>
+      <h4>Sua história</h4>
+      <p>Na última ceia, um dos apóstolos faz uma pergunta que o Evangelho de João registra: por que Jesus se mostraria aos discípulos e não ao mundo inteiro? Quem pergunta é "Judas, não o Iscariotes", como o texto faz questão de esclarecer.</p>
+      <h4>Oração</h4>
+      <div class="fade">
+        <p class="prayer">Deus fiel, há um peso que carrego em silêncio, e hoje decidi Te contar. Tu conheces cada detalhe e sabes quanto ele pesa. Não peço que tudo fique fácil. Peço serenidade para enxergar o próximo passo e força para não largar o que é justo. Livra-me da ideia de que preciso resolver tudo por conta própria…</p>
+      </div>
+      <h4>Gesto do dia</h4>
+      <p>Peça ajuda ou conselho a uma pessoa de confiança sobre uma dificuldade sua.</p>
+      <p class="keep">Para levar no coração: Dificuldade dividida, com Deus e com alguém, pesa menos.</p>
+    </article>
+    <p class="sample-foot">No e-book, o capítulo continua com a história completa, o "passo mais fundo" e as perguntas para refletir.</p>
+  </div>
+</section>
+
+<!-- EXPLORADOR -->
+<section style="padding-top:0">
+  <div class="wrap stack" style="gap:26px">
+    <div class="stack read">
+      <span class="eyebrow">Os 30 santos</span>
+      <h2>Encontre o santo para o seu momento</h2>
+      <p class="muted">Escolha o que você está vivendo ou toque em um dia para ver quem reza com você.</p>
+    </div>
+    <div class="explorer">
+      <div class="stack" style="gap:18px;min-width:0">
+        <div class="needs" role="group" aria-label="Filtrar por momento">
+          <button class="chip" type="button" data-need="familia" aria-pressed="false">Família</button>
+          <button class="chip" type="button" data-need="perdao" aria-pressed="false">Perdão</button>
+          <button class="chip" type="button" data-need="coragem" aria-pressed="false">Coragem</button>
+          <button class="chip" type="button" data-need="dificil" aria-pressed="false">Dificuldades</button>
+          <button class="chip" type="button" data-need="paz" aria-pressed="false">Paz e silêncio</button>
+          <button class="chip" type="button" data-need="recomeco" aria-pressed="false">Recomeço</button>
+        </div>
+        <ol class="beads" id="beads" aria-label="Os 30 dias"></ol>
+        <p class="hint" id="hint">Toque em um número para ver o santo do dia.</p>
+      </div>
+      <div class="saint-card" id="saint-card" aria-live="polite">
+        <span class="dl" id="sc-day">Dia 01</span>
+        <h3 id="sc-name">São José</h3>
+        <p class="theme" id="sc-theme">Confiar e cuidar da família</p>
+        <p class="meta" id="sc-feast">Festa 19/03</p>
+        <div class="nav">
+          <button type="button" id="sc-prev">← Anterior</button>
+          <button type="button" id="sc-next">Próximo →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JORNADA -->
+<section style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap stack" style="gap:26px">
+    <div class="stack read">
+      <span class="eyebrow">A caminhada</span>
+      <h2>O que muda em 30 dias</h2>
+    </div>
+    <div class="journey">
+      <div class="stage" style="background:var(--bg)"><span class="when">Dias 1 a 7</span><div class="bar"><i style="width:23%"></i></div><h3>Você cria o espaço</h3><p class="muted">Descobre o seu horário de oração e percebe que 10 minutos cabem no dia.</p></div>
+      <div class="stage" style="background:var(--bg)"><span class="when">Dias 8 a 21</span><div class="bar"><i style="width:70%"></i></div><h3>A oração ganha palavras</h3><p class="muted">Você passa a rezar com mais atenção e a conhecer santos que viveram dores parecidas com as suas.</p></div>
+      <div class="stage" style="background:var(--bg)"><span class="when">Dia 30</span><div class="bar"><i style="width:100%"></i></div><h3>Vira hábito</h3><p class="muted">Você termina com uma rotina de oração e escolhe um santo para seguir rezando todos os dias.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section>
+  <div class="wrap stack" style="gap:24px">
+    <div class="stack read">
+      <span class="eyebrow">Antes de comprar</span>
+      <h2>É para você?</h2>
+    </div>
+    <div class="fit">
+      <div class="fit-col yes" style="background:var(--paper)">
+        <h3>É para você se…</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>quer criar o hábito de rezar todos os dias</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>tem pouco tempo e precisa de algo curto e guiado</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>quer conhecer melhor a vida dos santos</li>
+        </ul>
+      </div>
+      <div class="fit-col no" style="background:var(--paper)">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>busca um estudo teológico acadêmico</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>espera promessas de milagre</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>quer livro impresso (este é digital, em PDF)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gift">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1s6 1 6 1zm0 0c2-4 6-4 6-1s-6 1-6 1z"/></svg>
+      <div><b>Um presente de fé que chega na hora</b><p class="muted">Para mãe, avó, madrinha ou amiga. Cadastre o e-mail de quem vai receber na hora da compra.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta" style="padding-top:0">
+  <div class="wrap offer">
+    <div class="stack" style="gap:22px;min-width:0">
+      <div class="stack">
+        <span class="eyebrow">O que você recebe</span>
+        <h2>Tudo para rezar 30 dias seguidos</h2>
+      </div>
+      <ul class="included">
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 5h11a4 4 0 0 1 4 4v10H8a4 4 0 0 1-4-4z"/></svg></span><div><b>E-book "30 Dias com os Santos" em PDF</b><span class="muted">Leitura confortável no celular, tablet ou computador.</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v18M6 9h12"/></svg></span><div><b>30 histórias de santos</b><span class="muted">Com resumo, data de festa e o que é fato e o que é tradição.</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></span><div><b>30 orações originais</b><span class="muted">Uma por tema: perdão, coragem, família, paciência, recomeço.</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>60 perguntas e 30 gestos do dia</b><span class="muted">Para a fé entrar na rotina.</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><b>Introdução, sumário e oração final</b><span class="muted">Para começar com clareza e fechar com gratidão.</span></div></li>
+      </ul>
+    </div>
+    <aside class="price-card" id="price-card">
+      <span class="eyebrow">Acesso completo</span>
+      <div class="big"><small>R$</small>19,90</div>
+      <p class="per-day">Pagamento único · menos de R$ 0,70 por dia</p>
+      <a class="btn btn-block js-checkout" href="#oferta">Comprar agora</a>
+      <p class="pay">PIX, cartão ou boleto · pagamento seguro pela Cakto · o e-book chega no seu e-mail</p>
+      <div class="micro">
+        <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Sem mensalidade</span>
+        <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Garantia de 7 dias</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section style="padding-top:0">
+  <div class="wrap read" style="margin-inline:auto">
+    <div class="guarantee">
+      <div class="seal"><div><b>7</b><span>dias</span></div></div>
+      <div class="txt">
+        <h3>Risco zero para você</h3>
+        <p class="muted">Leia os primeiros dias. Se não fizer sentido, peça o reembolso em até 7 dias pela própria plataforma e receba 100% do valor de volta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0">
+  <div class="wrap read stack" style="margin-inline:auto;gap:22px">
+    <div class="stack">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas antes de começar</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Como recebo o e-book?</summary><p>Assim que o pagamento é aprovado, o link de acesso chega no e-mail cadastrado. No PIX e no cartão, costuma levar poucos minutos. Confira também a caixa de spam.</p></details>
+      <details><summary>Preciso seguir os dias na ordem?</summary><p>A ordem ajuda a criar o hábito, mas não é obrigatória. Se hoje você precisa de São Judas ou de Santa Rita, pode ir direto ao dia deles.</p></details>
+      <details><summary>E se eu perder um dia?</summary><p>Retome de onde parou, sem culpa. O objetivo é constância, não perfeição.</p></details>
+      <details><summary>As orações são oficiais da Igreja?</summary><p>Não. São orações originais, escritas para este devocional e inspiradas no exemplo de cada santo. Elas não substituem a Missa, os sacramentos nem a orientação do seu padre.</p></details>
+      <details><summary>As histórias são confiáveis?</summary><p>Foram escritas com base em fontes católicas, como o Vatican News, e deixam claro quando algo é fato histórico e quando é tradição ou devoção popular.</p></details>
+      <details><summary>Serve para quem não é católico?</summary><p>O livro é escrito na tradição católica. Cristãos de outras igrejas podem aproveitar as orações e reflexões, mas os santos têm lugar central no conteúdo.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="night final" id="final">
+  <div class="wrap read stack center" style="gap:20px">
+    <span class="eyebrow">Daqui a 30 dias</span>
+    <h2>Você pode ter 30 dias de oração vividos, ou mais um mês de "amanhã eu começo"</h2>
+    <p class="muted">O primeiro dia leva 10 minutos. Comece hoje.</p>
+    <a class="btn js-checkout" href="#oferta">Começar por R$ 19,90</a>
+    <div class="micro" style="justify-content:center">
+      <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Acesso imediato</span>
+      <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Garantia de 7 dias</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>30 Dias com os Santos · e-book digital (PDF). Produto independente, sem vínculo com dioceses, ordens religiosas ou a CNBB.</p>
+    <p>As orações são originais e não são atribuídas aos santos. Este material não substitui a orientação espiritual de um sacerdote.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="p"><b>R$ 19,90</b><span>pagamento único</span></div>
+  <a class="btn js-checkout" href="#oferta" tabindex="-1">Quero o e-book</a>
+</div>
+
+<script>
+/* 1) COLE AQUI o link de checkout da Cakto (ex.: https://pay.cakto.com.br/xxxxxx) */
+var CHECKOUT_URL = "";
+
+(function(){
+  /* Botões de compra */
+  document.querySelectorAll(".js-checkout").forEach(function(a){
+    if (CHECKOUT_URL) { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; }
+    a.addEventListener("click", function(){
+      try { if (window.fbq) fbq("track", "InitiateCheckout", {value:19.90, currency:"BRL"}); } catch(e){}
+    });
+  });
+
+  /* 30 santos: [nome, festa, tema, grupos] */
+  var S = [
+    ["São José","19/03","Confiar e cuidar da família","familia"],
+    ["Santo Antônio","13/06","Reencontrar o que se perdeu","recomeco"],
+    ["São Francisco de Assis","04/10","Simplicidade e paz","paz"],
+    ["Santa Teresinha","01/10","Os pequenos gestos","paz"],
+    ["São Judas Tadeu","28/10","Não carregar sozinho","dificil"],
+    ["Santa Rita de Cássia","22/05","Perdão dentro de casa","perdao familia dificil"],
+    ["São Bento","11/07","Equilíbrio na rotina","paz"],
+    ["Santa Luzia","13/12","Ver com clareza",""],
+    ["São Jorge","23/04","Coragem","coragem"],
+    ["São Expedito","19/04","Não deixar para depois","recomeco coragem"],
+    ["Padre Pio","23/09","Perseverar na oração","dificil"],
+    ["Santa Faustina","05/10","Misericórdia","perdao"],
+    ["São João Paulo II","22/10","Vencer o medo","coragem"],
+    ["Santa Dulce dos Pobres","13/08","Caridade concreta",""],
+    ["Frei Galvão","25/10","Cuidar das pessoas","familia"],
+    ["Madre Paulina","09/07","Força nas dificuldades","dificil"],
+    ["Santa Edwiges","16/10","Serenidade com as preocupações","dificil"],
+    ["São Sebastião","20/01","Firmeza no cansaço","coragem"],
+    ["São Charbel","24/07","O valor do silêncio","paz"],
+    ["Santa Clara","11/08","Contemplar o essencial","paz"],
+    ["Santa Teresa de Ávila","15/10","Conversar com Deus como amigo",""],
+    ["Santo Agostinho","28/08","Recomeçar","recomeco"],
+    ["Santa Mônica","27/08","Rezar por quem amamos","familia"],
+    ["São João Bosco","31/01","Cuidar dos jovens","familia"],
+    ["Santa Catarina de Sena","29/04","A verdade dita com amor","coragem"],
+    ["São Tomás de Aquino","28/01","Aprender com humildade",""],
+    ["São Vicente de Paulo","27/09","Servir quem precisa",""],
+    ["Santa Ana","26/07","Os avós e as gerações","familia"],
+    ["São João Maria Vianney","04/08","Paciência","paz"],
+    ["Santa Josefina Bakhita","08/02","Liberdade e perdão","perdao recomeco"]
+  ];
+  var pad = function(n){ return String(n).padStart(2,"0"); };
+  var beads = document.getElementById("beads");
+  beads.innerHTML = S.map(function(s,i){
+    return '<li><button type="button" class="bead" data-i="'+i+'" aria-label="Dia '+(i+1)+': '+s[0]+'">'+(i+1)+'</button></li>';
+  }).join("");
+  var cur = 0;
+  function show(i){
+    cur = (i+30)%30;
+    var s = S[cur];
+    document.getElementById("sc-day").textContent = "Dia " + pad(cur+1);
+    document.getElementById("sc-name").textContent = s[0];
+    document.getElementById("sc-theme").textContent = s[2];
+    document.getElementById("sc-feast").textContent = "Festa " + s[1];
+    beads.querySelectorAll(".bead").forEach(function(b){ b.setAttribute("aria-current", b.dataset.i == cur ? "true" : "false"); });
+  }
+  beads.addEventListener("click", function(e){ var b = e.target.closest(".bead"); if (b) show(+b.dataset.i); });
+  document.getElementById("sc-prev").onclick = function(){ show(cur-1); };
+  document.getElementById("sc-next").onclick = function(){ show(cur+1); };
+
+  var chips = document.querySelectorAll(".chip");
+  var hint = document.getElementById("hint");
+  chips.forEach(function(c){
+    c.addEventListener("click", function(){
+      var on = c.getAttribute("aria-pressed") !== "true";
+      chips.forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+      var first = -1, count = 0;
+      beads.querySelectorAll(".bead").forEach(function(b){
+        var hit = on && S[b.dataset.i][3].split(" ").indexOf(c.dataset.need) > -1;
+        b.classList.toggle("hit", hit);
+        b.classList.toggle("dim", on && !hit);
+        if (hit) { count++; if (first < 0) first = +b.dataset.i; }
+      });
+      if (on) {
+        c.setAttribute("aria-pressed","true");
+        hint.textContent = count + " santos para este momento. Toque para conhecer cada um.";
+        if (first > -1) show(first);
+      } else {
+        hint.textContent = "Toque em um número para ver o santo do dia.";
+      }
+    });
+  });
+  show(0);
+
+  /* CTA fixo: aparece quando o botão do topo sai da tela e some perto da oferta e do final */
+  var sticky = document.getElementById("sticky");
+  if ("IntersectionObserver" in window) {
+    document.body.classList.add("has-sticky");
+    var state = {hero:true, offer:false, final:false};
+    var upd = function(){ sticky.classList.toggle("show", !state.hero && !state.offer && !state.final); };
+    var watch = function(id, key){
+      var el = document.getElementById(id); if (!el) return;
+      new IntersectionObserver(function(en){ state[key] = en[0].isIntersecting; upd(); }).observe(el);
+    };
+    watch("hero-cta","hero"); watch("price-card","offer"); watch("final","final");
+  }
+})();
+</script>
+</body>
+</html>
